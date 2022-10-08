@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import auth from './firebaseconfig'
+import auth from './firebaseconfig';
 import { useAuth } from '../context';
 import { Navigate } from "react-router-dom";
 export function Login() {
