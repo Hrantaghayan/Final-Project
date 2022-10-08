@@ -13,6 +13,7 @@ import auth from "./components/firebaseconfig";
 export function AuthProvider({ children }) {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+    
     useEffect(() => {
         const unsubscribe =onAuthStateChanged(auth,(currentuser) => {
         setUser(currentuser);
