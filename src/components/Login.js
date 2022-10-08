@@ -39,6 +39,7 @@ export function Login() {
   const logout = async () => {
     await signOut(auth);
   };
+  
   return (
     <div>
       {user ? <Navigate to="/" /> :
