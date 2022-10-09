@@ -51,7 +51,8 @@ export function Signup() {
       setDoc(ref, {
         email: user.email,
         id: user.uid,
-        username
+        username,
+        gamehistory:[]
       }).then((re) => {
         console.log('data in server')
         console.log(re)
