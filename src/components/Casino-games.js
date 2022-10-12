@@ -6,9 +6,14 @@ import {
     doc,
     getDoc,
   } from "firebase/firestore";
-  import { db } from "./firebaseconfig";
+import { db } from "./firebaseconfig";
+import { useNavigate } from "react-router-dom";
+
+
 export default function CasinoGame(){
     let {user,logout} = useAuth()
+
+    const navGame = useNavigate()
     const [username,setusername]=useState('')   
     useEffect(()=>{
         const docref =  doc(db,"userinformation",user.uid)
@@ -22,8 +27,8 @@ export default function CasinoGame(){
         <>
         <div className="casino">
           <div className="for-title">
-            <p>welcome {username}</p>
-            <h1>Casino</h1>
+            <p>Welcome {username} !</p>
+            <h1>CASINO</h1>
             <div className="btn-wrapper">
             <button className="btn"> Game History</button>
             <button className="btn" onClick={()=>{
@@ -34,15 +39,15 @@ export default function CasinoGame(){
           <div className="game-container">
             <div className="first-game-container">
               <div className="first-game"></div>
-              <div className="play-game-wrapper"><button className="play-game">Play JuicyFruits</button></div>
+              <div className="play-game-wrapper"><button onClick = {() => navGame("/juicyfruits")} className="play-game">Play Juicy Fruits</button></div>
             </div>
             <div className="second-game-container">
                 <div className="second-game"></div>
-                <div className="play-game-wrapper"><button className="play-game2">Play Funk Master</button></div>
+                <div className="play-game-wrapper"><button onClick = {() => navGame("/funkmaster")} className="play-game2">Play Funk Master</button></div>
             </div>
             <div className="thirth-game-container">
                 <div className="thirth-game"></div>
-                <div className="play-game-wrapper"><button className="play-game3">Play YumYum</button></div>
+                <div className="play-game-wrapper"><button onClick = {() => navGame("/yumyum")} className="play-game3">Play YumYum</button></div>
             </div>
           </div>
         </div>

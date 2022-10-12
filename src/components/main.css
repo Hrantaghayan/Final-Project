@@ -9,12 +9,13 @@
 .main{
     display: flex;
     background-color: beige;
-    height: 70vh;
+    height: 74vh;
     width: 100%;
 }
 .footer{
     background-color: rgb(17, 14, 14);
-    height: 15vh;
+    height: 11vh;
+    width: 100%
 }
 .mainLeft{
     display: flex;
@@ -194,6 +195,7 @@
     border-radius: 4px;
 }
 .name-username{
-    margin-top: 14px;
+    display: flex;
+    align-items: center;
     color: white;
 }
