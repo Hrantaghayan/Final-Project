@@ -7,7 +7,7 @@
     width: 100%;
     height: 100vh;
 }
-@keyframes forbordercolor {
+@keyframes forboxshadowdcolor {
     30%  { box-shadow:  0 20px red;}
     60%  {box-shadow:  0 20px blue; }
     100%  {box-shadow: 0 20px orange; }
@@ -23,7 +23,7 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    animation-name: forbordercolor;
+    animation-name: forboxshadowdcolor;
     animation-duration: 5s;
     animation-iteration-count:infinite;
     /* animation-direction: alternate; */

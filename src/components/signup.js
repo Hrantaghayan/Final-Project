@@ -52,7 +52,9 @@ export function Signup() {
         email: user.email,
         id: user.uid,
         username,
-        gamehistory:[]
+        gameHistory:[],
+        balance:20000
+
       }).then((re) => {
         console.log('data in server')
         console.log(re)

@@ -160,14 +160,16 @@
     font-size: 35px;
     color: aqua;
 }
-.userName{
+.Balance{
     display: flex;
     flex-direction: row-reverse;
     margin: 4px;
     color:  rgb(51, 50, 50);
     margin-top: 0px;
+    margin-right: 7px;
+   
 }
-.userName:hover{
+.Balance:hover{
     display: flex;
     flex-direction: row-reverse;
     margin: 4px;
