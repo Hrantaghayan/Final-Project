@@ -87,12 +87,12 @@
 .headerItem1Left{
     display: flex;
     width: 20%;
-    background-color: rgb(252, 29, 0);
+    background-color: rgb(15, 15, 15);
     justify-content: space-around;
 }
 .headerItem1Right{
     width: 20%;
-    background-color: rgb(252, 29, 0);
+    background-color: rgb(15, 15, 15);
 }
 .clock{
     display: flex;
@@ -160,23 +160,20 @@
     font-size: 35px;
     color: aqua;
 }
-.Balance{
+.balance{
     display: flex;
     flex-direction: row-reverse;
     margin: 4px;
-    color:  rgb(51, 50, 50);
+    color:  white;
     margin-top: 0px;
-    margin-right: 7px;
-   
+    margin-right: 10px;
 }
-.Balance:hover{
+.balance:hover{
     display: flex;
     flex-direction: row-reverse;
     margin: 4px;
     color:rgb(63, 245, 8) ;
-    margin-top: 0px;
-    font-size: 20px;
-
+    margin-right: 12px;
 }
 .butten{
     display: flex;
@@ -187,11 +184,16 @@
 .hist{
     margin-right: 2px;
     background-color: transparent;
+    color: white;
 }
  button{
     border-color: transparent;
     background-color:transparent;
-    color:  rgb(51, 50, 50);
+    color:  white;
     cursor: pointer;
     border-radius: 4px;
+}
+.name-username{
+    margin-top: 14px;
+    color: white;
 }
