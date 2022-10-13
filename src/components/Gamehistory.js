@@ -30,39 +30,17 @@ export default function Gamehistory(){
     // let arr = []
        
    if(Array.isArray(gamehistory)){
-  table = gamehistory.map((el)=>{
+
+  table = gamehistory.reverse().map((el)=>{
         return (
-           
-     <table key={Math.random()}>
-                <thead  key={Math.random()}>
-                    <tr key={Math.random()}>
-                        <th colSpan={2} className="table-title"  key={Math.random()}>Action</th>
-                    </tr>
-                </thead>
-           <tbody  key={Math.random()}>
-           <tr  key={Math.random()}>
-                <td  key={Math.random()}>AfterBalance</td>
-                <td  key={Math.random()}>{el.AfterBalance}</td>
-            </tr>
-            <tr  key={Math.random()}>
-                <td  key={Math.random()}>Bet</td>
-                <td  key={Math.random()}>{el.Bet}</td>
-            </tr>
-            <tr  key={Math.random()}>
-                <td  key={Math.random()}>Date</td>
-                <td  key={Math.random()}>{el.Date}</td>
-            </tr>
-            <tr  key={Math.random()}>
-                <td  key={Math.random()}>Game</td>
-                <td  key={Math.random()}>{el.Game}</td>
-            </tr>
-            <tr  key={Math.random()}>
-                <td  key={Math.random()}>Win</td>
-                <td  key={Math.random()}>{el.Win}</td>
-            </tr>
-           </tbody>
-            </table>
-            
+                          <tr  className="trHover">
+                          <td key={Math.random()}>{el.Date}</td>
+                          <td key={Math.random()}>{el.Bet}</td>
+                          <td key={Math.random()}>{el.Win}</td>
+                          <td key={Math.random()}>{el.AfterBalance}</td>
+                          <td key={Math.random()}>{el.Game}</td>
+                          </tr>
+
         )
       })
    }
@@ -88,7 +66,23 @@ export default function Gamehistory(){
           }}>Log out</button>
          </div>
       </div>
-       {table}
+      <table key = {Math.random()}>
+      <thead  key={Math.random()}>
+        
+                    <tr key={Math.random()} className="heading">
+                        
+                          <th  key={Math.random()}>Date</th>
+                          <th  key={Math.random()}>Bet</th>
+                          <th  key={Math.random()}>Win</th>
+                          <th  key={Math.random()}>After Balance</th>
+                          <th  key={Math.random()}>Game</th>
+                        
+                    </tr>
+                </thead>
+                <tbody key = {Math.random()}>
+               {table}
+                </tbody>
+                </table>
          </>}
       </div>
     )
