@@ -15,6 +15,7 @@ import FunkMaster from "./FunkMaster";
 import JuicyFruits from "./JuicyFruits"
 import YumYum from "./YumYum"
 import Gamehistory from "./Gamehistory";
+import CardApp from "./cardSrc/cardApp";
 export  function Register(){
     return (
         <AuthProvider>
@@ -71,6 +72,7 @@ export  function Register(){
                 <Route path="Login" element={<Login/>}/>
                 <Route path="signup" element={<Signup/>}/>
                 <Route  path="*" element={<FalsePath/>}/>
+                <Route path="card" element={<CardApp/>}/>
             </Routes>
         </AuthProvider>
     )
