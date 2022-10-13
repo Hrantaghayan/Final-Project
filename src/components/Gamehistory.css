@@ -28,7 +28,7 @@
     text-align: center;
     background-color: #04AA6D;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 300;
   }
   tr:hover {background-color: coral;}
   .loader-wrapper{

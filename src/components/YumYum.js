@@ -1,5 +1,5 @@
 import './YumYum.css';
-import { updateDoc , doc , getDoc } from 'firebase/firestore';
+import { updateDoc , doc , getDoc , arrayUnion} from 'firebase/firestore';
 import React, {useState, useEffect} from 'react'
 import { useAuth } from '../context';
 import { db } from './firebaseconfig';
@@ -30,7 +30,7 @@ const YumYum = ({id, owned, close, expires}) => {
     
     const updateUser = async function(iid, gameHistory)  {
         const userDoc = doc(db,"userinformation",iid)
-        const newFields = {gameHistory: gameHistory}
+        const newFields = {gameHistory: arrayUnion(...gameHistory)}
         await updateDoc(userDoc,newFields)
     }
 
@@ -290,19 +290,19 @@ function win() {
         winning = 0
     } 
     
-    ring3 && historyRecorder()
+    ring3 && historyRecorder(winning)
     
 }
 
-function historyRecorder(){
+function historyRecorder(winning){
     gameHistory.push({
         Date: new Date().toLocaleString(),
         Bet: realBet,
         Win: winning,
-        AfterBalance: balance,
+        AfterBalance: balance + winning,
         Game: "Yum-Yum"
     })
-   updateBalance(iid,balance)
+   updateBalance(iid,balance + winning)
    updateUser(iid,gameHistory)
 }
 
@@ -372,7 +372,7 @@ function deposit(){
         {premio()}
         </h1>
         <div className="slotFoot">
-        <input value={input} step={10} type="number" onChange={(e) => numChecker(e)} className="betInput" placeholder="10֏"></input>
+        <input value={input} step={10} type="number" onChange={(e) => numChecker(e)} className="betInput" placeholder=""></input>
         <button className="spinButton" onClick={() => play()}>Spin</button>
         </div>
         <h1 className="price">{"Available balance: " + Math.round((balance * 100)) / 100 + "֏"}</h1>

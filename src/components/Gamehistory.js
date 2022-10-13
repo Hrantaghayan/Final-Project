@@ -36,7 +36,7 @@ export default function Gamehistory(){
      <table key={Math.random()}>
                 <thead  key={Math.random()}>
                     <tr key={Math.random()}>
-                        <th colSpan={2} className="table-title"  key={Math.random()}>Gamehistory</th>
+                        <th colSpan={2} className="table-title"  key={Math.random()}>Action</th>
                     </tr>
                 </thead>
            <tbody  key={Math.random()}>
@@ -49,7 +49,7 @@ export default function Gamehistory(){
                 <td  key={Math.random()}>{el.Bet}</td>
             </tr>
             <tr  key={Math.random()}>
-                <td  key={Math.random()}>date</td>
+                <td  key={Math.random()}>Date</td>
                 <td  key={Math.random()}>{el.Date}</td>
             </tr>
             <tr  key={Math.random()}>
@@ -69,17 +69,20 @@ export default function Gamehistory(){
     return (
       <div className="table-container">
       
-       {typeof gamehistory==='string'?<div className="loader-wrapper"><div className="loader"></div></div>:gamehistory.length===0?<div className="empty">You dont have game history for that you need to play our games <button className="go-casino" onClick={()=>{navigate("/casino")}}>Go casino</button></div>:
+       {typeof gamehistory==='string'?<div className="loader-wrapper"><div className="loader"></div></div>:gamehistory.length===0?<div className="empty">You don't have game history yet, first you need to play one of our games <button className="go-casino" onClick={()=>{navigate("/casino")}}>Go to Casino</button></div>:
          <>
          <div className="game-history-info-wrapper">
          <div className="username-balance-wrapper">
           <p className="username-gamehistory">{username}</p>
-          <p className="username-gamehistory">Balance : {balance} ֏</p>
+          <p className="username-gamehistory">Balance: {balance} ֏</p>
          </div>
          <div className="game-hisory-btn-wrapper">
+         <button className="g-btn" onClick={()=>{
+            navigate("/")
+          }}>Home</button>
           <button className="g-btn" onClick={()=>{
             navigate("/Casino")
-          }}>go Casino</button>
+          }}>Casino</button>
           <button className="g-btn"  onClick={()=>{
             logout()
           }}>Log out</button>

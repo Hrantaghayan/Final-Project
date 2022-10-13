@@ -1,7 +1,7 @@
 import './FunkMaster.css';
 
 import React, {useState, useEffect} from 'react'
-import { doc, updateDoc, getDoc } from 'firebase/firestore';
+import { doc, updateDoc, getDoc, arrayUnion } from 'firebase/firestore';
 import { useAuth } from '../context';
 import { db } from './firebaseconfig';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ const FunkMaster = ({id, owned, close, expires}) => {
     let iid = user.uid
     const updateUser = async function(iid, gameHistory)  {
         const userDoc = doc(db,"userinformation",iid)
-        const newFields = {gameHistory: gameHistory}
+        const newFields = {gameHistory: arrayUnion(...gameHistory)}
         await updateDoc(userDoc,newFields)
     }
     let winning = 0
@@ -286,7 +286,7 @@ function win() {
         winning = 0
     } 
     
-    ring3 && historyRecorder()
+    ring3 && historyRecorder(winning)
    
 }
 
@@ -295,10 +295,10 @@ function historyRecorder(){
         Date: new Date().toLocaleString(),
         Bet: realBet,
         Win: winning,
-        AfterBalance: balance,
+        AfterBalance: balance+winning,
         Game: "Funk Master"
     })
-    updateBalance(iid,balance)
+    updateBalance(iid,balance+winning)
     updateUser(iid,gameHistory)
 }
 
@@ -351,7 +351,7 @@ function deposit(){
     return (
         <div className = 'funkmaster'>
                 <div className="fullSlot1">
-        <h1 className="casinoName">funk master</h1>
+        <h1 className="casinoName1">funk master</h1>
         {/* <h3 className='casinoName'>Get 3 X 🎻 =>Win Jackpot</h3>/ */}
         <h1 className="price1">{"Jackpot: " + jackpot + "֏"}</h1>
         <div className="slot">
