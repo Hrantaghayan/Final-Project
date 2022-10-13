@@ -11,26 +11,30 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function CasinoGame(){
-    let {user,logout} = useAuth()
+    const {user,logout} = useAuth()
 
     const navGame = useNavigate()
-    const [username,setusername]=useState('')   
+    const [username,setusername]=useState('');  
+    const [balance,setbalance]=useState('')
     useEffect(()=>{
         const docref =  doc(db,"userinformation",user.uid)
         getDoc(docref)
         .then((data)=>{
            console.log(data.data())
            setusername(data.data().username)
+           setbalance(data.data().balance)
         },[])  
        },[user])
     return (
         <>
         <div className="casino">
           <div className="for-title">
-            <p>Welcome {username} !</p>
+            <p>Welcome {username}<span>Balance : {balance} ֏</span></p>
             <h1>CASINO</h1>
             <div className="btn-wrapper">
-            <button className="btn"> Game History</button>
+            <button className="btn" onClick={()=>{
+              navGame("/gamehistory")
+            }}> Game History</button>
             <button className="btn" onClick={()=>{
                 logout()
             }}>Log out</button>

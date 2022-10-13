@@ -32,7 +32,7 @@ useEffect(()=>{
         <div className="headerItem1"> 
            <div className="headerItem1Left">
               <Image src="https://png.pngtree.com/png-clipart/20200225/original/pngtree-casino-badge-vector-illustration-badge-icon-png-image_5253117.jpg"/>
-              <Name username={username}/>
+              <Name username={username} balance={balance}/>
               <Clock />
            </div> 
            <div className="headerItem1Center">
@@ -43,9 +43,10 @@ useEffect(()=>{
             <button onClick={()=>{
                 logout()
             }}>Log out</button>
-            <button className="hist">Game History</button>
+            <button className="hist" onClick={()=>{
+                navigate('/gamehistory')
+            }}>Game History</button>
            </div>
-           <span  className="balance">Balance : {balance}</span>
            </div> 
         </div>
         <div className="headerItem2">

@@ -9,6 +9,9 @@ export default function Image(prop){
 }
 
 function Name(props){
-    return <p className="name-username">{props.username}</p>
+    return (<>
+    <p className="name-username">{props.username}</p>
+    <p  className="balance">Balance:{props.balance} ֏</p>
+    </>)
 } 
 export {Name}

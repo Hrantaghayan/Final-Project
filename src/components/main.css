@@ -87,12 +87,12 @@
 }
 .headerItem1Left{
     display: flex;
-    width: 20%;
+    width: 30%;
     background-color: rgb(15, 15, 15);
     justify-content: space-around;
 }
 .headerItem1Right{
-    width: 20%;
+    width: 30%;
     background-color: rgb(15, 15, 15);
 }
 .clock{
@@ -163,11 +163,14 @@
 }
 .balance{
     display: flex;
-    flex-direction: row-reverse;
+    align-items: center;
     margin: 4px;
     color:  white;
-    margin-top: 0px;
+    
     margin-right: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    margin-left: 0px;
 }
 .balance:hover{
     display: flex;
@@ -179,6 +182,7 @@
 .butten{
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
     margin-right: 4px;
     margin-top: 0px;
 }
@@ -186,16 +190,31 @@
     margin-right: 2px;
     background-color: transparent;
     color: white;
+    font-size: 14px;
+    font-weight: 300;
 }
- button{
+.butten button{
     border-color: transparent;
     background-color:transparent;
     color:  white;
     cursor: pointer;
     border-radius: 4px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 300;
 }
 .name-username{
     display: flex;
     align-items: center;
     color: white;
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 7px;
+}
+.name-username:hover{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 4px;
+    color:rgb(63, 245, 8) ;
+    margin-right: 12px;
 }

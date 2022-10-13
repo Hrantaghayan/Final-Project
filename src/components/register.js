@@ -14,6 +14,7 @@ import CasinoGame from "./Casino-games";
 import FunkMaster from "./FunkMaster";
 import JuicyFruits from "./JuicyFruits"
 import YumYum from "./YumYum"
+import Gamehistory from "./Gamehistory";
 export  function Register(){
     return (
         <AuthProvider>
@@ -58,6 +59,13 @@ export  function Register(){
             element={
                      <Privateroute2>
                          <JuicyFruits/>
+                      </Privateroute2>
+                    }/>
+                           <Route
+            path="/gamehistory"
+            element={
+                     <Privateroute2>
+                         <Gamehistory/>
                       </Privateroute2>
                     }/>
                 <Route path="Login" element={<Login/>}/>

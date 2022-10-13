@@ -19,9 +19,12 @@
     /* background-color: #e0555a; */
     background-color: transparent;
     color:  rgb(51, 50, 50);;
+    font-weight: 400;
+    cursor: pointer;
 }
 .logout-wrapper p{
-    color:  rgb(51, 50, 50);;
+    color:  rgb(51, 50, 50);
+    font-weight: 400;
 }
 .aboutus-container{
     background-color: #e9eaef;;
@@ -55,6 +58,7 @@
     margin: 20px;
     color: #5e6977;;
     line-height: 22px;
+    font-weight: 300;
 }
 .right-part{
     width: 40%;
@@ -77,6 +81,7 @@
     font-weight: 600;
     color:  rgb(51, 50, 50);
     margin-top: 20px;
+    font-weight: 300;
 }
 .Second-for-bord{
     border: 0.5px solid #e0555a;
@@ -90,7 +95,8 @@
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    color: #949fa9;;
+    color: #949fa9;
+    font-weight: 300;
 }
 .first-chief{
     width: 30%;
