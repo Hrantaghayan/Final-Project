@@ -27,23 +27,23 @@ export default function Card({
   }
   // console.log(cN);
   return (
-    <div id="wrapper">
+    <div className="cardWrapper">
       <div style={cardBg} className="card"></div>
-      <div className="container">
+      <div className="cardContainer">
         {flip ? (
           <div id="back">
             <div id="band"></div>
             <div id="cvv">
-              <span className={focus === "cvv" ? "focused" : ""}>CVV</span>
+              <span className={focus === "cvv" ? "cardFocused" : ""}>CVV</span>
               <span>{cvv}</span>
             </div>
           </div>
         ) : (
-          <div id="front">
-            <div id="silver"></div>
-            <div id="type">{type}</div>
+          <div className="cardFront">
+            <div className="silver"></div>
+            <div className="cardType">{type}</div>
             <div
-              className={focus === "number" ? "focused" : ""}
+              className={focus === "number" ? "cardFocused" : ""}
               id="cardNumber"
             >
               {cardNumber.length === 16

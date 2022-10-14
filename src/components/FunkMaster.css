@@ -21,9 +21,9 @@ body {
     height:100vh
 }
 
-* {
+/* *:not(.cardInput .cardInfo .cardApp cardStyles.body) {
   box-sizing: border-box;
-}
+} */
 
 @import url("https://use.typekit.net/yjs2lsy.css");
 

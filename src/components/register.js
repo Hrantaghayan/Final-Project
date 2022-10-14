@@ -15,7 +15,7 @@ import FunkMaster from "./FunkMaster";
 import JuicyFruits from "./JuicyFruits"
 import YumYum from "./YumYum"
 import Gamehistory from "./Gamehistory";
-import CardApp from "./cardSrc/cardApp";
+import CardApp from "./CardApp"
 export  function Register(){
     return (
         <AuthProvider>

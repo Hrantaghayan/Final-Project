@@ -1,9 +1,9 @@
-import "./styles.css";
+import "./cardStyles.css";
 import Card from "./components/Card";
 
 import { useState } from "react";
 import { CgEditFlipH } from "react-icons/cg";
-export default function App() {
+export default function CardApp() {
   const months = [];
   const year = [];
   var [focus, setFocus] = useState("none");
@@ -16,7 +16,7 @@ export default function App() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [flip, setFlip] = useState(false);
-  const [cvv, setCvv] = useState(123);
+  const [cvv, setCvv] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolder, setCardHolder] = useState("");
   const [expDate, setExpDate] = useState({ month: "10", year: 21 });
@@ -27,7 +27,8 @@ export default function App() {
     if (
       /^[0-9]{16}$/.test(cardNumber) &&
       /^[a-zA-Z ]{5,15}$/.test(cardHolder.trim()) &&
-      /^[0-9]{3}$/.test(cvv)
+      /^[0-9]{3}$/.test(cvv) &&
+      checkExpDate() !== "Expired"
     ) {
       setSuccess(true);
       setError("Your information have been captured successfully!");
@@ -36,11 +37,11 @@ export default function App() {
         setSuccess(false);
       }, 5000);
     } else {
-      setError("some of your information are invalid! please restart");
+      setError("Some of your information are invalid! please retry");
       setTimeout(() => {
         setError("");
         setSuccess(false);
-      }, 4000);
+      }, 5000);
     }
   };
   const handleInputChange = (e) => {
@@ -78,7 +79,7 @@ export default function App() {
         );
         setTimeout(() => {
           setError("");
-        }, 4000);
+        }, 1500);
       }
     }
   };
@@ -93,7 +94,7 @@ export default function App() {
   };
   const checkExpDate = () => {
     var gap = expDate.year - new Date().getFullYear().toString().substring(2);
-    if (gap < 1 && expDate.month <= new Date().getMonth() + 1) {
+    if (gap < 1 && expDate.month < new Date().getMonth() + 1) {
       return "Expired";
     } else if (gap <= 1) {
       return "expires soon";
@@ -102,13 +103,13 @@ export default function App() {
     }
   };
   return (
-    <div className="App">
-      <form action="#" onSubmit={(e) => handleSubmit(e)}>
+    <div className="CardApp">
+      <form  className="cardForm" action="#" onSubmit={(e) => handleSubmit(e)}>
         <div
           onClick={() => {
             setFlip(!flip);
           }}
-          id="flip"
+          className="cardFlip"
           style={{ background: flip ? "#a4d2f8" : "#001a2f" }}
         >
           {flip ? (
@@ -134,8 +135,9 @@ export default function App() {
             {error}
           </div>
           <div className="cardInfo">
-            <label htmlFor="cardNumber">Card Number</label>
+            <label className="cardLabel" htmlFor="cardNumber">Card Number</label>
             <input
+              className="cardInput"
               type="tel"
               name="number"
               placeholder="Card Number"
@@ -149,8 +151,9 @@ export default function App() {
             />
           </div>
           <div className="cardInfo">
-            <label htmlFor="cardHolder">Card Holder</label>
+            <label className="cardLabel" htmlFor="cardHolder">Card Holder</label>
             <input
+            className="cardInput"
               type="text"
               name="name"
               placeholder="Card Name"
@@ -164,7 +167,7 @@ export default function App() {
           </div>
           <div className="beforeLast">
             <div className="date">
-              <label htmlFor="ExpDate">Expiration Date</label>
+              <label className="cardLabel" htmlFor="ExpDate">Expiration Date</label>
               <span id="dateSelection">
                 <select
                   value={expDate.month}
@@ -210,8 +213,9 @@ export default function App() {
               </span>
             </div>
             <div className="groupCvv">
-              <label htmlFor="cvv">CVV</label>
+              <label className="cardLabel" htmlFor="cvv">CVV</label>
               <input
+              className="cardInput"
                 type="tel"
                 name="cvv"
                 pattern="\d{3}"
@@ -224,7 +228,7 @@ export default function App() {
             </div>
           </div>
 
-          <button type="submit">Submit</button>
+          <button className="cardButton" type="submit">Submit</button>
         </div>
       </form>
     </div>
