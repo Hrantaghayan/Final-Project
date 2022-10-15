@@ -21,6 +21,7 @@ const FunkMaster = ({id, owned, close, expires}) => {
     const [realBet, setRealBet] = useState()
     const [jackpot, setJackpot] = useState(0)
     const [balance, setBalance] = useState()
+    const [havecard,sethavecard] = useState('')
     const {user} = useAuth()
     const navBack = useNavigate()
     
@@ -42,8 +43,8 @@ const FunkMaster = ({id, owned, close, expires}) => {
         const docref =  doc(db,"userinformation",iid)
         getDoc(docref)
         .then((data)=>{
-           
-           setBalance(data.data().balance)
+        setBalance(data.data().balance)
+        sethavecard(data.data().haveCard)
         })  
        },[user])
     
@@ -374,7 +375,11 @@ function deposit(){
         </div>
         <h1 className="price1">{"Available balance: " + Math.round((balance * 100)) / 100 + "֏"}</h1>
         <br/>
-        <button onClick={deposit} className="buyMoreButton1">Deposit 1000 ֏</button>
+        {havecard?<button onClick={deposit} className="buyMoreButton1">Deposit 1000 ֏</button>:
+        <button className="buyMoreButton1" onClick={()=>{
+            navBack("/card")
+        }}>Attach Bankcard</button>
+        }
         <button onClick={() => navBack(-1)} className="buyMoreButton1">Close Game</button>
 
         </div>

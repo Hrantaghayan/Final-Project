@@ -53,7 +53,8 @@ export function Signup() {
         id: user.uid,
         username,
         gameHistory:[],
-        balance:20000
+        balance:20000,
+        haveCard:false
 
       }).then((re) => {
         console.log('data in server')

@@ -3,6 +3,10 @@ import Card from "./cardCmpts/Card";
 import React from "react";
 import { useState } from "react";
 import { CgEditFlipH } from "react-icons/cg";
+import { useAuth } from "../context";
+import { updateDoc , doc , getDoc , arrayUnion} from 'firebase/firestore';
+import { db } from './firebaseconfig';
+import { useNavigate } from 'react-router-dom';
 export default function CardApp() {
   const months = [];
   const year = [];
@@ -13,6 +17,7 @@ export default function CardApp() {
   for (let i = new Date().getFullYear(); i < 2030; i++) {
     year.push(i);
   }
+  const navigate = useNavigate()
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [flip, setFlip] = useState(false);
@@ -21,8 +26,15 @@ export default function CardApp() {
   const [cardHolder, setCardHolder] = useState("");
   const [expDate, setExpDate] = useState({ month: "10", year: 21 });
   const type = "visa"; /* or Discover,MasterCard HBK's Custom feature */
-
+  const {user} = useAuth()
+  let iid = user.uid
+  const updatehavecard = async function(iid)  {
+    const userDoc = doc(db,"userinformation",iid)
+    const newFields = {haveCard: true}
+    await updateDoc(userDoc,newFields)
+}
   const handleSubmit = (e) => {
+    debugger
     e.preventDefault();
     if (
       /^[0-9]{16}$/.test(cardNumber) &&
@@ -31,17 +43,19 @@ export default function CardApp() {
       checkExpDate() !== "Expired"
     ) {
       setSuccess(true);
+      updatehavecard(iid)
       setError("Your information have been captured successfully!");
       setTimeout(() => {
         setError("");
         setSuccess(false);
+        navigate(-1)
       }, 5000);
     } else {
       setError("Some of your information are invalid! please retry");
       setTimeout(() => {
         setError("");
         setSuccess(false);
-      }, 5000);
+      }, 3000);
     }
   };
   const handleInputChange = (e) => {
@@ -227,8 +241,18 @@ export default function CardApp() {
               />
             </div>
           </div>
-
-          <button className="cardButton" type="submit">Submit</button>
+          <button className="cardButton" type="submit" 
+          // onClick={(e)=>{
+          //   e.preventDefault()
+          //   if(cardNumber===''|| cardHolder===''){
+          //     setError('you must fill all fields')
+          //   }
+          //   else{
+          //     setSuccess('good')
+          //     console.log('asdas')
+          //   }
+          // }}
+          >Submit</button>
         </div>
       </form>
     </div>

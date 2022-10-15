@@ -26,7 +26,6 @@ export default function Card({
       hashtags.push(toAdd);
     }
   }
-  // console.log(cN);
   return (
     <div className="cardWrapper">
       <div style={cardBg} className="card"></div>

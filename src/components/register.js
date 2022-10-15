@@ -69,11 +69,16 @@ export  function Register(){
                          <Gamehistory/>
                       </Privateroute2>
                     }/>
+                              <Route
+            path="/card"
+            element={
+                     <Privateroute2>
+                         <CardApp/>
+                      </Privateroute2>
+                    }/>
                 <Route path="Login" element={<Login/>}/>
                 <Route path="signup" element={<Signup/>}/>
                 <Route  path="*" element={<FalsePath/>}/>
-                <Route  path="card" element={<CardApp/>}/>
-
             </Routes>
         </AuthProvider>
     )
