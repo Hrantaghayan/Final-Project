@@ -373,7 +373,7 @@ function deposit(){
         {havecard?<button onClick={deposit} className="buyMoreButton2">Deposit 1000 ֏</button>:
         <button className="buyMoreButton2" onClick={()=>{
             navBack("/card")
-        }}>Attach Bankcard</button>
+        }}>Attach Credit Card</button>
         }
         <button onClick={() => navBack(-1)} className="buyMoreButton2">Close Game</button>
         </div></div>

@@ -7,9 +7,6 @@ import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 export const gameHistory = []
-// backgroundImage = '../images/food.jpg'
-// document.body.backgroundImage = URL('../images/food.jpg')
-// document.YumYum.backgroundImage = URL('../images/food.jpg')
 
 const YumYum = ({id, owned, close, expires}) => {
     console.log(useLocation())
@@ -381,7 +378,7 @@ function deposit(){
         {havecard?<button onClick={deposit} className="buyMoreButton">Deposit 1000 ֏</button>:
         <button className="buyMoreButton" onClick={()=>{
             navBack("/card")
-        }}>Attach Bankcard</button>
+        }}>Attach Credit Card</button>
         }
         <button onClick={() => navBack(-1)} className="buyMoreButton">Close Game</button>
         </div></div>

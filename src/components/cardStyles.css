@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 .CardApp  {
- 
+  background-image: url(../images/card_background.png);
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: #a4d2f8;
+  /* background: #a4d2f8; */
 }
 .cardForm {
   display: flex;

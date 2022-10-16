@@ -1,7 +1,9 @@
 @import url('reset.css');
 .auth-content{
     min-height: 100vh;
-    background-color: rgb(51, 50, 50);
+    background-image: url(../images/card_background.png);
+
+    /* background-color: rgb(51, 50, 50); */
 }
 .container{
     width: 100%;
